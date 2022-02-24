@@ -1,14 +1,25 @@
-var text = document.getElementById("tallVisning");
-text.innerHTML = "Halla";
+var tekst = document.getElementById("tallVisning");
+tekst.innerHTML = "Halla";
 
 var num1;
 var num2;
 var operator;
-var button_array = [];
+var tallKnappArray = [];
 
-function concatinateNumber(number) {}
+//Setter alle tall knappene i en array og binder en funksjon til dem
 for(i = 0; i < 10; i++) {
-    button_array[i] = document.getElementById("b"+String(i))
-    button_array[i].addEventListener("click", concatinateNumber(i))
+    tallKnappArray[i] = document.getElementById("k"+String(i))
+    tallKnappArray[i].onclick = function () {
+        console.log(this.innerHTML)
+    }
 }
-console.log(button_array)
+
+var plussKnapp = document.getElementById("kPluss")
+
+var minusKnapp = document.getElementById("kMinus")
+
+var gangeKnapp = document.getElementById("kGange")
+
+var delingKnapp = document.getElementById("kDeling")
+
+console.log(tallKnappArray)
