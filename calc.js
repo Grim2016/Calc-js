@@ -7,19 +7,31 @@ var operator;
 var tallKnappArray = [];
 
 //Setter alle tall knappene i en array og binder en funksjon til dem
-for(i = 0; i < 10; i++) {
+for (i = 0; i < 10; i++) {
     tallKnappArray[i] = document.getElementById("k"+String(i))
     tallKnappArray[i].onclick = function () {
         console.log(this.innerHTML)
     }
 }
 
-var plussKnapp = document.getElementById("kPluss")
+const plussKnapp = document.getElementById("kPluss")
+plussKnapp.onclick = function () {
+    operator = "Pluss"
+}
 
-var minusKnapp = document.getElementById("kMinus")
+const minusKnapp = document.getElementById("kMinus")
+plussKnapp.onclick = function () {
+    operator = "Minus"
+}
 
-var gangeKnapp = document.getElementById("kGange")
+const gangeKnapp = document.getElementById("kGange")
+gangeKnapp.onclick = function () {
+    operator = "Gange"
+}
 
-var delingKnapp = document.getElementById("kDeling")
+const delingKnapp = document.getElementById("kDeling")
+delingKnapp.onclick = function () {
+    operator = "Deling"
+}
 
 console.log(tallKnappArray)
