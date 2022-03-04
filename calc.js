@@ -1,17 +1,16 @@
-var tekst = document.getElementById("tallVisning");
+var tekst = document.getElementById("tallVisningsDiv");
 tekst.innerHTML = " ";
 var tall1 = 0;
 var tall2 = 0;
 var operator;
 var tallKnappArray = [];
 
-var nåværendeOperator;
-var gamleOperator;
+var Operator;
 
 var tallSomSkalVises = 1;
 
 function log() {
-    console.log(`Nåværende Operator: ${nåværendeOperator}\nGamle Operator: ${gamleOperator}\nTall 1: ${tall1}\nTall 2: ${tall2}`);
+    console.log(`Operator: ${operator}\nTall 1: ${tall1}\nTall 2: ${tall2}`);
 }
 
 //Setter alle tall knappene i en array og binder en funksjon til dem
@@ -49,7 +48,7 @@ for (i = 0; i < 10; i++) {
 
 function regneUt() {
     log()
-    switch (gamleOperator) {
+    switch (operator) {
         case "Pluss":
             tall1 += Number(tall2);
             break;
@@ -69,40 +68,33 @@ function regneUt() {
 }
 
 function operatorFunc () {
-    if(nåværendeOperator == gamleOperator) {
-        regneUt();
         tallSomSkalVises = 2;
         tall2 = "";
-    }
-        tallSomSkalVises = 2;
-        tall2 = "";
-
-    gamleOperator = nåværendeOperator;
     log();
 }
 
 const plussKnapp = document.getElementById("kPluss")
 plussKnapp.onclick = function () {
-    nåværendeOperator = "Pluss";
+    operator = "Pluss";
     operatorFunc();
 }
 
 
 const minusKnapp = document.getElementById("kMinus");
 minusKnapp.onclick = function () {
-    nåværendeOperator = "Minus";
+    operator = "Minus";
     operatorFunc();
 }
 
 const gangeKnapp = document.getElementById("kGange");
 gangeKnapp.onclick = function () {
-    nåværendeOperator = "Gange";
+    operator = "Gange";
     operatorFunc();
 }
 
 const delingKnapp = document.getElementById("kDele");
 delingKnapp.onclick = function () {
-    nåværendeOperator = "Dele";
+    operator = "Dele";
     operatorFunc();
 }
 const erLikKnapp = document.getElementById("kErLik");
@@ -115,9 +107,8 @@ slettAltKnapp.onclick = function () {
     tallSomSkalVises = 1;
     tall2 = 0;
     tall1 = 0;
-    tekst.innerHTML = " ";
-    nåværendeOperator = "";
-    gamleOperator = "";
+    tekst.innerHTML = tall1;
+    operator = "";
     console.log("Slett alt");
     log();
 }
