@@ -1,6 +1,29 @@
-div {
-    height: 25%;
+#hoved {
+    height:100%;
+    width: 100%;
 }
+#tallVisningsDiv {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border: 0.0625em solid black;
+    width: 100%;
+    height: 25%;
+    padding: 0px;
+}
+.knappDiv {
+    margin: auto;
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+}
+.knappDiv button {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+}
+
 button {
     background-color: aqua;
     border-radius: 25%;
