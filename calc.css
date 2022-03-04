@@ -1,15 +1,22 @@
 #hoved {
     height:100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 #tallVisningsDiv {
     margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     border: 0.0625em solid black;
     width: 100%;
     height: 25%;
     padding: 0px;
+    font-size: 12vh;
+}
+#tallVisning {
+    font-size: 12vh;
 }
 .knappDiv {
     margin: auto;
@@ -20,11 +27,13 @@
 }
 .knappDiv button {
     width: 25%;
+    height: 25%;
     display: flex;
     justify-content: center;
+    font-size: 12.8vh;
 }
 
 button {
     background-color: aqua;
-    border-radius: 25%;
+    border-radius: 2vh;
 }
