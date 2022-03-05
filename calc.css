@@ -15,9 +15,7 @@
     padding: 0px;
     font-size: 12vh;
 }
-#tallVisning {
-    font-size: 12vh;
-}
+
 .knappDiv {
     margin: auto;
     width: 100%;
@@ -30,10 +28,25 @@
     height: 25%;
     display: flex;
     justify-content: center;
-    font-size: 12.8vh;
+    font-size: 9vh;
 }
 
-button {
+
+button, #alleTall {
     background-color: aqua;
-    border-radius: 2vh;
+    width: 25%;
+    border: 1px solid black;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+}
+#alleTall {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+#tall1, #tall2 {
+    display: flex;
+    font-size: 4.5vh;
+    justify-content: center;
 }
