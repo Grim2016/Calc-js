@@ -22,6 +22,7 @@ for (i = 0; i < 10; i++) {
     tallKnappArray[i] = document.getElementById("k"+String(i));
     tallKnappArray[i].onclick = function () {
         if(tallSomSkalVises == 1) {
+            //TODO gjør slik at den autom
             tall.tall2 = 0;
             tall.tall1 = String(tall.tall1) + this.innerHTML;
             if(String(tall.tall1)[0] == 0 && String(tall.tall1)[1] != ".") {
@@ -63,6 +64,8 @@ function regneUt() {
         let tall1Eksponent = Number(tall1String.split("^")[1])
         tall.tall2 = Number(tall1String.split("^")[0])**tall1Eksponent
     }
+    tall.tall1 = Number(tall.tall1)
+    tall.tall2 = Number(tall.tall2)
     switch (operator) {
         case "Pluss":
             tall.tall1 += Number(tall.tall2);
@@ -156,6 +159,11 @@ const slettEnKnapp = new AnnenKnapp("SlettEn", function (index) {
     tekst.innerHTML = String(tall[index]).replace(".",",");
 })
 
+const slettNåverende = new AnnenKnapp("SlettNåverende", function (index) {
+    tall[index] = 0;
+    tekst.innerHTML = tall[index]
+})
+
 const kommaKnapp = new AnnenKnapp("Komma", function (index) {
     if(String(tall[index]).includes(".")) {
         return;
@@ -167,6 +175,7 @@ const kommaKnapp = new AnnenKnapp("Komma", function (index) {
 })
 
 const invertererKnapp = new AnnenKnapp("Inverterer", function (index) {
+    tall[index] = Number(tall[index]);
     tall[index] = tall[index] - tall[index]*2;
     tekst.innerHTML = String(tall[index]).replace(".",",");
 })
