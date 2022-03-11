@@ -22,20 +22,24 @@ for (i = 0; i < 10; i++) {
     tallKnappArray[i] = document.getElementById("k"+String(i));
     tallKnappArray[i].onclick = function () {
         if(tallSomSkalVises == 1) {
-            //TODO gjør slik at den autom
+            //TODO gjør slik at den automatisk fjerner nullen forran
             tall.tall2 = 0;
             tall.tall1 = String(tall.tall1) + this.innerHTML;
+            console.log("1")
             if(String(tall.tall1)[0] == 0 && String(tall.tall1)[1] != ".") {
                 let tall1String = String(tall.tall1);
-                tall1String[0] = "";
+                console.log("Boi1");
+                tall1String[0] = "8";
+                console.log(tall1String);
                 tall.tall1 = tall1String;
             }
         }
         else {
+            console.log("tall2");
             tall.tall2 = String(tall.tall2) + this.innerHTML;
             if(String(tall.tall2)[0] == 0 && String(tall.tall2)[1] != ".") {
                 let tall2String = String(tall.tall2);
-                console.log("Boi")
+                console.log("Boi2");
                 tall2String[0] = "";
                 tall.tall2 = tall2String;
             }
@@ -155,7 +159,7 @@ const kvadratrotKnapp = new AnnenKnapp("Kvadratrot", function (index) {
 })
 
 const slettEnKnapp = new AnnenKnapp("SlettEn", function (index) {
-    tall[index] = Number(String(tall[index]).substring(0,String(tall[index]).length-1));
+    tall[index] = String(tall[index]).substring(0,String(tall[index]).length-1);
     tekst.innerHTML = String(tall[index]).replace(".",",");
 })
 
