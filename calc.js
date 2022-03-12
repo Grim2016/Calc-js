@@ -55,21 +55,28 @@ for (i = 0; i < 10; i++) {
     }
 }
 
-
-
-function regneUt() {
+function eksponentRegning() {
+    //Sjekker om tall1 inneholder eksponent
     if(String(tall.tall1).includes("^")) {
         let tall1String = String(tall.tall1)
         let tall1Eksponent = Number(tall1String.split("^")[1])
         tall.tall1 = Number(tall1String.split("^")[0])**tall1Eksponent
     }
+    //Sjekker om tall2 inneholder eksponent
     if(String(tall.tall2).includes("^")) {
         let tall1String = String(tall.tall1)
         let tall1Eksponent = Number(tall1String.split("^")[1])
         tall.tall2 = Number(tall1String.split("^")[0])**tall1Eksponent
     }
-    tall.tall1 = Number(tall.tall1)
-    tall.tall2 = Number(tall.tall2)
+}
+
+function regneUt() {
+    eksponentRegning();
+    //Sikrer at tallene er tall
+    tall.tall1 = Number(tall.tall1);
+    tall.tall2 = Number(tall.tall2);
+    
+    //Utfører matematisk operasjon ut i fra hvilken operator som er valgt
     switch (operator) {
         case "Pluss":
             tall.tall1 += Number(tall.tall2);
@@ -84,16 +91,19 @@ function regneUt() {
             tall.tall1 /= tall.tall2;
             break;
     }
+
     tallSomSkalVises = 1;
     tekst.innerHTML = String(tall.tall1).replace(".",",");
-    settIndreTall()
+    settIndreTall();
     log();
 }
 
-
+//Lager standard klasse for operatorknappene
 class OperatorKnapp {
     constructor(Navn) {
+        //Henter html elementet ut i fra navnet du har satt inn
         this.html = document.getElementById("k"+Navn)
+
         this.html.onclick = function () {
             operator = Navn;
             tallSomSkalVises = 2;
@@ -114,21 +124,15 @@ const delingKnapp = new OperatorKnapp("Dele");
 const erLikKnapp = document.getElementById("kErLik");
 erLikKnapp.onclick = regneUt;
 
+//Lager standard klasse for alle de andre knappene som utfører funksjonen ut i fra hvilket tall som skal vises
 class AnnenKnapp {
     constructor (Navn, Funksjon) {
+        //Henter html elementet ut i fra navnet du har satt inn
         this.html = document.getElementById("k"+Navn);
         this.html.onclick = function () {
             
-            if(String(tall.tall1).includes("^")) {
-                let tall1String = String(tall.tall1)
-                let tall1Eksponent = Number(tall1String.split("^")[1])
-                tall.tall1 = Number(tall1String.split("^")[0])**tall1Eksponent
-            }
-            if(String(tall.tall2).includes("^")) {
-                let tall1String = String(tall.tall1)
-                let tall1Eksponent = Number(tall1String.split("^")[1])
-                tall.tall2 = Number(tall1String.split("^")[0])**tall1Eksponent
-            }
+            eksponentRegning();
+
             if(tallSomSkalVises == 1) {
                 Funksjon("tall1");
             }
