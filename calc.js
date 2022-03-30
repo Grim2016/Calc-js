@@ -3,7 +3,7 @@ var html = {
     tall1: document.getElementById("tall1"),
     tall2: document.getElementById("tall2")
 };
-var tall = {tall1: 0, tall2: 0}
+var tall = {tall1: "0", tall2: "0"}
 var operator;
 var tallKnappArray = [];
 var tallSomSkalVises = 1;
@@ -22,25 +22,27 @@ for (i = 0; i < 10; i++) {
     tallKnappArray[i] = document.getElementById("k"+String(i));
     tallKnappArray[i].onclick = function () {
         if(tallSomSkalVises == 1) {
-            //TODO gjør slik at den automatisk fjerner nullen forran
             tall.tall2 = 0;
             tall.tall1 = String(tall.tall1) + this.innerHTML;
             console.log("1")
-            if(String(tall.tall1)[0] == 0 && String(tall.tall1)[1] != ".") {
+            if(String(tall.tall1)[0] == 0 && String(tall.tall2).length != 0 && String(tall.tall1)[1] != ".") {
                 let tall1String = String(tall.tall1);
                 console.log("Boi1");
-                tall1String[0] = "8";
+                tall1String = tall1String.substring(1);
                 console.log(tall1String);
+                console.log(tall.tall2.length)
                 tall.tall1 = tall1String;
             }
         }
         else {
             console.log("tall2");
             tall.tall2 = String(tall.tall2) + this.innerHTML;
-            if(String(tall.tall2)[0] == 0 && String(tall.tall2)[1] != ".") {
+            if(String(tall.tall2)[0] == 0 && String(tall.tall2).length != 0 && String(tall.tall2)[1] != ".") {
                 let tall2String = String(tall.tall2);
                 console.log("Boi2");
-                tall2String[0] = "";
+                tall2String = tall2String.substring(1);
+                console.log(tall2String);
+                console.log(tall.tall2.length)
                 tall.tall2 = tall2String;
             }
         }
@@ -107,7 +109,7 @@ class OperatorKnapp {
         this.html.onclick = function () {
             operator = Navn;
             tallSomSkalVises = 2;
-            tall.tall2 = "";
+            tall.tall2 = "0";
             log();
         }
     }
@@ -141,6 +143,7 @@ class AnnenKnapp {
             }
             settIndreTall()
         }
+        console.log(this.html)
     }
 }
 
@@ -154,14 +157,28 @@ const slettAltKnapp = new AnnenKnapp("SlettAlt", function () {
     log();
 })
 
-const kvadratrotKnapp = new AnnenKnapp("Kvadratrot", function (index) {
+/*const kvadratrotKnapp = new AnnenKnapp("Kvadratrot", function (index) {
     tall[index] = Math.sqrt(tall[index]);
     tekst.innerHTML = String(tall[index]).replace(".",",");
     if(index == 0) {
         tall[tall2] = 0;
     }
 })
-
+*/
+/*const kubikkrotKnapp = new AnnenKnapp("Kubikkrot", function (index) {
+    tall[index] = tall[index]**(1/3)
+    tekst.innerHTML = String(tall[index]).replace(".",",");
+    if(index == 0) {
+        tall[tall2] = 0;
+    }
+})*/
+const rotKnapp = new AnnenKnapp("Rot", function (index) {
+    tall[index] = tall[index]**(1/document.getElementById("RotInn").value);
+    tekst.innerHTML = String(tall[index]).replace(".",",");
+    if(index == 0) {
+        tall[tall2] = 0;
+    }
+})
 const slettEnKnapp = new AnnenKnapp("SlettEn", function (index) {
     tall[index] = String(tall[index]).substring(0,String(tall[index]).length-1);
     tekst.innerHTML = String(tall[index]).replace(".",",");
