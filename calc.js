@@ -1,4 +1,15 @@
-var tekst = document.getElementById("tallVisningsDiv");
+const root = document.querySelector(":root");
+const fargeVelger = document.getElementById("fVelger");
+const fargeBekrefter = document.getElementById("fBekrefter");
+fargeBekrefter.onclick = () => {
+    console.log("Farge")
+    root.style.setProperty("--hoved-farge", fargeVelger.value)
+}
+const fargeReset = document.getElementById("fReset");
+fargeReset.onclick = () => {
+    root.style.setProperty("--hoved-farge", "#d4c8ff")
+}
+const tekst = document.getElementById("tallVisningsDiv");
 var html = {
     tall1: document.getElementById("tall1"),
     tall2: document.getElementById("tall2")
@@ -157,21 +168,6 @@ const slettAltKnapp = new AnnenKnapp("SlettAlt", function () {
     log();
 })
 
-/*const kvadratrotKnapp = new AnnenKnapp("Kvadratrot", function (index) {
-    tall[index] = Math.sqrt(tall[index]);
-    tekst.innerHTML = String(tall[index]).replace(".",",");
-    if(index == 0) {
-        tall[tall2] = 0;
-    }
-})
-*/
-/*const kubikkrotKnapp = new AnnenKnapp("Kubikkrot", function (index) {
-    tall[index] = tall[index]**(1/3)
-    tekst.innerHTML = String(tall[index]).replace(".",",");
-    if(index == 0) {
-        tall[tall2] = 0;
-    }
-})*/
 const rotKnapp = new AnnenKnapp("Rot", function (index) {
     tall[index] = tall[index]**(1/document.getElementById("RotInn").value);
     tekst.innerHTML = String(tall[index]).replace(".",",");
@@ -207,5 +203,6 @@ const invertererKnapp = new AnnenKnapp("Inverterer", function (index) {
 const eksponentKnapp = new AnnenKnapp("Potens", function (index) {
     tall[index] = String(tall[index]) +"^"
 })
+
 
 console.log(tallKnappArray);

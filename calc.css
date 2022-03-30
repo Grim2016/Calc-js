@@ -1,17 +1,33 @@
+:root {
+    --hoved-farge: #d4c8ff;
+}
 #hoved {
-    --main-color: aqua;
     height:100%;
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-self: center;
     justify-content: center;
+    
+}
+
+#fargeSkjema {
+    color: var(--hoved-farge);
+    display: flex;
+    width: 100%;
+}
+input[type=color] {
+    border-top-left-radius: 1.25vh;
+    border-bottom-left-radius: 1.25vh;
+    background-color: var(--hoved-farge);
+    width: 100%;
 }
 #tallVisningsDiv {
     margin: auto;
     display: flex;
     justify-content: right;
     border: 0.0625em solid black;
-    width: 98.75%;
+    width: 99.25%;
     height: 25%;
     font-size: 12vh;
 }
@@ -44,7 +60,7 @@
     width: 50%;
     height: 25%;
     padding: 0%;
-    background-color: var(--main-color);
+    background-color: var(--hoved-farge);
     justify-content: center;
     font-size: 9.25vh;
 }
@@ -54,13 +70,13 @@
     border-bottom-left-radius: 1.25vh;
     width: 50%;
     text-align: center;
-    background-color: var(--main-color);
+    background-color: var(--hoved-farge);
     font-size: 8.75vh;
 
 }
 
 button, #alleTall {
-    background-color: var(--main-color);
+    background-color: var(--hoved-farge);
     width: 25%;
     border: 1px solid black;
     border-radius: 1vh;
