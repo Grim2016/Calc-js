@@ -1,4 +1,5 @@
 #hoved {
+    --main-color: aqua;
     height:100%;
     width: 100%;
     display: flex;
@@ -10,9 +11,8 @@
     display: flex;
     justify-content: right;
     border: 0.0625em solid black;
-    width: 100%;
+    width: 98.75%;
     height: 25%;
-    padding: 0px;
     font-size: 12vh;
 }
 
@@ -20,6 +20,7 @@
     margin: auto;
     width: 100%;
     height: 75%;
+    padding: 0%;
     display: flex;
     justify-content: center;
 }
@@ -30,10 +31,36 @@
     justify-content: center;
     font-size: 9vh;
 }
+#rot {
+    margin: 0%;
+    width: 25%;
+    height: 35%;
+    justify-content: center;
+    display: flex;
+}
+#rot input[type=button]{
+    border-top-right-radius: 1.25vh;
+    border-bottom-right-radius: 1.25vh;
+    width: 50%;
+    height: 25%;
+    padding: 0%;
+    background-color: var(--main-color);
+    justify-content: center;
+    font-size: 9.25vh;
+}
 
+#rot input[type=text] {
+    border-top-left-radius: 1.25vh;
+    border-bottom-left-radius: 1.25vh;
+    width: 50%;
+    text-align: center;
+    background-color: var(--main-color);
+    font-size: 8.75vh;
+
+}
 
 button, #alleTall {
-    background-color: aqua;
+    background-color: var(--main-color);
     width: 25%;
     border: 1px solid black;
     border-radius: 1vh;
